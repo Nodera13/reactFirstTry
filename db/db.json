@@ -31,36 +31,5 @@
       "id": "XdrtnjZ"
     }
   ],
-  "notes": [
-    {
-      "id": "dR5gfdvnt5",
-      "title": "Test title",
-      "content": "Test cointent",
-      "authorId": "dR5vnt5",
-      "authorName": "gsfdgfsdg sf",
-      "date": "234324:432432:432",
-      "Status": "Active"
-    },
-    {
-      "title": "set",
-      "content": "set",
-      "author": "",
-      "authorName": "test create1",
-      "date": "2020-06-05T09:21:49.400Z",
-      "authorId": "XdrtnjZ",
-      "id": "VEbk_Ct",
-      "Status": "Active",
-      "status": "Done"
-    },
-    {
-      "title": "asd",
-      "content": "asdasdas",
-      "author": "",
-      "authorName": "test create1",
-      "date": "2020-06-05T14:49:16.603Z",
-      "status": "Active",
-      "authorId": "XdrtnjZ",
-      "id": "2uW315V"
-    }
-  ]
+  "notes": []
 }

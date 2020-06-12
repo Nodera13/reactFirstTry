@@ -36,6 +36,20 @@ export function NoteCard({ note, onDeleteClick }) {
             noteClassByType += "bg-primary";
         break;
     }
+    function  requiredTime (){
+ 
+        let evaluation=parseInt(note.evaluation);
+        if (evaluation<2) {
+            return "card text-white bg-info mb-3";
+           
+        }
+        else if(evaluation>=2 && evaluation<=5){
+            return "card text-white bg-warning mb-3";
+        }
+        else{
+            return "card text-white bg-danger mb-3";
+        }
+    }
 
     return (
     <div className={noteClassByType} style={noteCardStyle}>
@@ -50,6 +64,8 @@ export function NoteCard({ note, onDeleteClick }) {
         <div className="card-footer bg-transparent border-secondary">
             <div>Author: {note.authorName}</div>
             <div>Created on: {note.date}</div>
+            <div className={(note.isImportant && "text-warning") || "text-success"}> Status: {(note.isImportant && "It is important") || "It is not important"}</div>
+            <div className = {requiredTime()}>Time required: {note.requiredTime} hr</div>
         </div>
     </div>
     )

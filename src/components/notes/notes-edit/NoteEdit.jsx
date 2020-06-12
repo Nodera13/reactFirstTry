@@ -5,7 +5,7 @@ import './NoteEdit.css';
 
 export function NotesEdit(props) {
 
-    const [currentNote, setCurrentNote] = useState({title: '', content: '', authorId: '', authorName: '', date: '' });
+    const [currentNote, setCurrentNote] = useState({title: '', content: '', authorId: '', authorName: '', date: '', isImportant: false, requiredTime : ''});
     const [shouldRedirect, setShouldRedirect] = useState(false);
     console.log(props);
     useEffect(() => {
@@ -32,6 +32,18 @@ export function NotesEdit(props) {
         .catch((err) => console.error(err));
     }
 
+    const onCheckBoxChange = (event) => {
+        event.persist();
+        setCurrentNote((prevState)=>({
+            ...prevState,
+            [event.target.name]: event.target.checked
+        }))
+    
+ 
+      
+        
+    };
+
     return (
         <>
         { shouldRedirect && <Redirect to="/notes" /> }
@@ -53,6 +65,20 @@ export function NotesEdit(props) {
                         <option value="Done">Done</option>
                     </select>
                 </div>
+                <div className="form-group">
+                       
+                       
+                       <label labelfor="isImportant">Is it important: </label>
+                       <input type="checkbox" name="isImportant" id="isImportant" className="form-control" onChange={onCheckBoxChange} checked={currentNote.isImportant} />
+                  
+               </div>
+               <div className="form-group">
+                       
+                       
+                       <label labelfor="requiredTime">Time required:  </label>
+                       <input type="number" name="requiredTime" id="requiredTime" className="form-control" onChange={onInputChange} value={currentNote.requiredTime} />
+                  
+               </div>
                 <button className="btn btn-primary">Save note</button>
             </form>
         </div>
