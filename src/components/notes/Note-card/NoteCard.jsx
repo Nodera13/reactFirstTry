@@ -4,6 +4,7 @@ import { getLoggedUser } from '../../../core/api/users.api';
 import { NoteStatus, deleteNote } from '../../../core/api/notes.api';
 
 
+
 const noteCardStyle = {
     maxWidth: '18rem'
 }
@@ -20,28 +21,28 @@ const editBtnStyle ={
 export function NoteCard({ note, onDeleteClick }) {
     const loggedUser = getLoggedUser();
 
-    let noteCardClassByType ="card text-white mb-3 ";
-    switch(note.status){
-        case NoteStatus.Active :
-        noteCardClassByType += "bg-primary" ;   
+    let noteClassByType = "card text-white m-3 ";
+    switch(note.status) {
+        case NoteStatus.Active: 
+            noteClassByType += "bg-primary";
         break;
-        case NoteStatus.Done:
-        noteCardClassByType += "bg-success";    
+        case NoteStatus.Done: 
+            noteClassByType += "bg-success";
         break;
         case NoteStatus.Pending:
-        noteCardClassByType += "bg-secondary"    
+            noteClassByType += "bg-secondary";
         break;
-        default:
-        noteCardClassByType += "bg-primary"
+        default: 
+            noteClassByType += "bg-primary";
         break;
     }
 
-    return(
-        <div className={noteCardClassByType} style ={noteCardStyle}>
+    return (
+    <div className={noteClassByType} style={noteCardStyle}>
         <div className="card-header">
             {note.title}
-            { (loggedUser.isAdmin || loggedUser.id === note.authorId) && <Link style = {editBtnStyle} to={`/notes/edit/${note.id}`} > Edit </Link> }
-            { (loggedUser.isAdmin || loggedUser.id === note.authorId) && <span style={deleteBtnStyles} onClick={() => onDeleteClick(note.id)}>Delete</span> }
+            { (loggedUser.isAdmin || loggedUser.id === note.authorId) && <Link to={`/notes/edit/${note.id}`} > Edit </Link> }
+    { (loggedUser.isAdmin || loggedUser.id === note.authorId) && <span style={deleteBtnStyles} onClick={() => onDeleteClick(note.id)}>Delete</span> }
         </div>
         <div className="card-body">
             <p className="card-text">{note.content}</p>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getUserById } from '../../../core/api/users.api';
 import { UserCard } from './../user-card/UserCard';
 import { getNotesByAuthorId, deleteNote } from '../../../core/api/notes.api';
-import { NoteCard } from '../../notes/Note-card/NoteCard';
+import { NoteCard } from '../../notes/note-card/NoteCard';
 
 export class User extends Component {
 
